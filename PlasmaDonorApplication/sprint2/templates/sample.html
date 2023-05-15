@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block title %}New User - Register{% endblock title %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data" action="/demo" id="yes">
+        <input class="ignore" type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="file" name="img-demo">
+        <button type="submit">submit</button>
+    </form>
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        $(document).on('submit', '#yes', function (){
+            alert('yes');
+        });
+    </script>
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+{% endblock javascript %}
