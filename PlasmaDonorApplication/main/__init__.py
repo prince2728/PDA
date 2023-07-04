@@ -7,7 +7,7 @@ from flask_mail import Mail
 from datetime import timedelta
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_TOKEN')
+app.secret_key = '9318ad1c9825f549a2e58062f517bc724613bf22dd73c65273122731a2a1a82a'
 flask_bcrypt = Bcrypt(app)
 csrf = CSRFProtect(app)
 
@@ -18,8 +18,8 @@ app.permanent_session_lifetime = timedelta(minutes=30)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.environ.get('E-MAIL')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL-PASSWORD')
+app.config['MAIL_USERNAME'] = 'donorplasma124@gmail.com '
+app.config['MAIL_PASSWORD'] = 'iqmnecfcspltdodz'
 mail = Mail(app)
 
 # MySQL connection
