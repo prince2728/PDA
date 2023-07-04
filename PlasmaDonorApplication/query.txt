@@ -1,0 +1,14 @@
+create database PlasmaDonorApp;
+
+use PlasmaDonorApp;
+create table user_table (userid int not null auto_increment, email varchar(255), password varchar(18), reset_link varchar(200), status varchar(20), primary key(userid));
+
+create table personaldetails (fname varchar(32), lname varchar(32), email varchar(255), dob date, age numeric, phonenumber numeric, bloodgroup varchar(5), address varchar(255), pincode numeric, city varchar(100), state varchar(50));
+
+create table organisation_details (orgid int not null auto_increment, name varchar(120), email varchar(255), contact numeric, address varchar(255), locality varchar(50), city varchar(50), state varchar(50), pincode integer, approved varchar(15), primary key(orgid));
+
+create table donate_requests (donor_email varchar(120), org_email varchar(120), request_status varchar(20), date_of_req datetime, org_name varchar(100), b_group varchar(10), donor_name varchar(70), donor_contact integer);
+
+create table org_donor_register_table (fname varchar(32), lname varchar(32), bloodgroup varchar(10), email varchar(120), phonenumber numeric, org_email varchar(120));
+
+create table img_demo (imgid int auto_increment, img_col blob, primary key (imgid));
